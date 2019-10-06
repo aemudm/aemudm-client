@@ -7,10 +7,10 @@ export default class FooterIndex extends React.Component {
     return (
       <Footer>
         <div className='wrapper'>
-          <Icon image={images.facebook} href='http://www.facebook.com/aemudm' />
-          <Icon image={images.mail} href='mailto:aemudm@gmail.com' />
-          <Icon image={images.twitter} href='https://twitter.com/aemudm' />
-          <Icon image={images.youtube} href='http://www.youtube.com/user/aemudem' />
+          <Icon image='facebook' href='http://www.facebook.com/aemudm' />
+          <Icon image='mail' href='mailto:aemudm@gmail.com' />
+          <Icon image='twitter' href='https://twitter.com/aemudm' />
+          <Icon image='youtube' href='http://www.youtube.com/user/aemudem' />
         </div>
         <p>aemudm.ca copyright ©</p>
       </Footer>
@@ -19,5 +19,5 @@ export default class FooterIndex extends React.Component {
 }
 
 const Icon = (props) => (
-  <a href={props.href}><img src={props.image} alt={props.image} /></a>
+  <a href={props.href}><img src={images[props.image]} alt={props.image} /></a>
 )

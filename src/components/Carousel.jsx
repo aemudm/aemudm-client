@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from '../styles/Carousel'
-
+import images from '../images'
 export default class CarouselComponent extends React.Component {
   constructor (props) {
     super(props)
@@ -34,7 +34,7 @@ export default class CarouselComponent extends React.Component {
   render () {
     const item = this.props.imageList[this.state.index]
     return (
-      <Carousel style={{ backgroundImage: `url('${item}')` }}>
+      <Carousel style={{ backgroundImage: `url('${images[item]}')` }}>
 
         <i
           className='fas fa-arrow-left'

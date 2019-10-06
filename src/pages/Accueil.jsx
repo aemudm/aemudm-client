@@ -1,10 +1,9 @@
 import React from 'react'
 import { Section, Card, Carousel, Page } from '../components'
-import images from '../images'
 
 const Accueil = (props) => (
   <Page>
-    <Carousel imageList={[images.accueil, images.campus, images.community]} speed={5} />
+    <Carousel imageList={['accueil', 'campus', 'community']} speed={5} />
     <Section background='beige'>
       <Card
         title='Qui Sommes-nous?'
@@ -23,44 +22,44 @@ const Accueil = (props) => (
       <Card
         cardLink='/activites#year'
         subTitle='Activités Anuelles'
-        fullSizeImage={images.activite1}
+        fullSizeImage='activite1'
       />
       <Card
         cardLink='/activites#reccurent'
         subTitle='Activités récurrentes'
-        fullSizeImage={images.activite2}
+        fullSizeImage='activite2'
       />
       <Card
         cardLink='/activites#ponctual'
         subTitle='Activités ponctuelles'
-        fullSizeImage={images.activite3}
+        fullSizeImage='activite3'
       />
     </Section>
     <Section background='beige' title='En apprendre plus sur lislam'>
       <Card
         cardLink='/references#textes'
         subTitle='Les textes religieux'
-        imageList={[images.texte1, images.texte2]}
+        imageList={['texte1', 'texte2']}
       />
       <Card
         cardLink='/references#bref'
         subTitle='Islam en bref et détaillé'
-        imageList={[images.bref1, images.bref2, images.bref3]}
+        imageList={['bref1', 'bref2', 'bref3']}
       />
       <Card
         cardLink='/references#priere'
         subTitle='La prière en islam'
-        imageList={[images.priere1, images.priere2]}
+        imageList={['priere1', 'priere2']}
       />
       <Card
         cardLink='/references#series'
         subTitle='Séries youtoube'
-        imageList={[images.youtube1, images.youtube2]}
+        imageList={['youtube1', 'youtube2']}
       />
       <Card
         cardLink='/references#apps'
         subTitle='Applications mobiles'
-        imageList={[images.apps1, images.apps2, images.apps3]}
+        imageList={['apps1', 'apps2', 'apps3']}
       />
     </Section>
   </Page>

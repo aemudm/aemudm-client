@@ -1,10 +1,11 @@
 import React from 'react'
 import HexagoneCard from '../styles/HexagoneCard'
 import Hexagone from '../styles/Hexagone'
+import images from '../images'
 
 const CardComponent = (props) => (
   <HexagoneCard cardCount={props.cardCount}>
-    <HexagoneComponent image={props.image} />
+    <HexagoneComponent image={images[props.image]} />
     <h5>{props.title}</h5>
     {props.subTitle && <h6>{props.subTitle}</h6>}
     <p>{props.description}</p>

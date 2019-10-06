@@ -1,6 +1,8 @@
 import React from 'react'
 import { CustomCard, ImageList } from './'
 import { Link } from 'react-router-dom'
+import images from '../images'
+
 const CardComponent = (props) => (
   <CustomCard
     cover={props.thinPadding}
@@ -12,7 +14,7 @@ const CardComponent = (props) => (
       <ImageList list={props.image ? [props.image] : props.imageList} />
     }
     {props.fullSizeImage &&
-      <img src={props.fullSizeImage} alt={props.fullSizeImage} />
+      <img src={images[props.fullSizeImage]} alt={props.fullSizeImage} />
     }
     {props.title && <h3>{props.title}</h3>}
     {props.subTitle && <h4>{props.subTitle}</h4>}

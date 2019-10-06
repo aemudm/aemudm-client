@@ -1,5 +1,6 @@
 import React from 'react'
 import ImageList from '../styles/ImageList'
+import images from '../images'
 
 const ImageListComponent = (props) => (
   <ImageList className='image-list'>
@@ -7,7 +8,7 @@ const ImageListComponent = (props) => (
       <img
         style={{ height: props.height || '' }}
         key={index}
-        src={url}
+        src={images[url]}
         alt={url}
       />
     ))}
