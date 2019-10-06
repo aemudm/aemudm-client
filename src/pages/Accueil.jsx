@@ -4,7 +4,7 @@ import images from '../images'
 
 const Accueil = (props) => (
   <Page>
-    <Carousel list={[images.accueil, images.campus, images.community]} speed={5000} />
+    <Carousel imageList={[images.accueil, images.campus, images.community]} speed={5} />
     <Section background='beige'>
       <Card
         title='Qui Sommes-nous?'

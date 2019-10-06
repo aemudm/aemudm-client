@@ -6,7 +6,8 @@ const ScrollCard = (props) => (
   <CustomCard
     scroll
     cardCount={props.cardCount}
-    href={props.link}
+    href={props.link || props.file}
+    file={props.file}
   >
     <ImageList height={props.imageHeight} list={[props.image]} />
     <div className='scroll-wrapper'>

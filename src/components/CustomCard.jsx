@@ -16,17 +16,17 @@ export default class CardComponent extends React.Component {
         onMouseLeave={() => { this.ref.scrollTop = 0 }}
         cover={this.props.cover}
       >
-        <>
-          {this.props.href &&
-            ((this.props.href.includes('www.') || this.props.href.includes('http') || this.props.file)
-              ? <a target='_blank' rel='noopener noreferrer' href={this.props.href}>{this.props.children}</a>
-              : <Link to={this.props.href}>{this.props.children}</Link>)
-          }
-          {!this.props.href &&
-          this.props.children
-          }
-        </>
+        <RenderConditions {...this.props} />
       </Card>
     )
+  }
+}
+const RenderConditions = (props) => {
+  if (!props.href) return props.children
+  if (props.file) return <a target='_blank' rel='noopener noreferrer' href={props.file}>{props.children}</a>
+  if (props.href.includes('www.') || props.href.includes('http')) {
+    return <a target='_blank' rel='noopener noreferrer' href={props.href}>{props.children}</a>
+  } else {
+    return <Link to={props.href}>{props.children}</Link>
   }
 }

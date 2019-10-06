@@ -69,21 +69,21 @@ const References = () => (
     </Section>
     <Section background='green' title='La prière rituelle'>
       <ScrollCard
-        link='./prayerbooklet.pdf'
+        file='./prayerbooklet.pdf'
         image={images.prayer1}
         imageHeight='60px'
         title='My prayer booklet'
         description='La prière expliquée en documentation complète'
       />
       <ScrollCard
-        link='./prayerbooklet.pdf'
+        link='https://salah.com/'
         image={images.prayer2}
         imageHeight='30px'
         title='Salah.com'
         description='Heures de prière en temps réel partout sur le globe'
       />
       <ScrollCard
-        link='./prayermat.pdf'
+        file='./prayermat.png'
         image={images.prayer3}
         imageHeight='60px'
         title='My prayer mat'

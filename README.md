@@ -1,68 +1,204 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Instruction pour permettre à n'importe qui ne connaissant rien de la programmation de pouvoir modifier le site web
 
-## Available Scripts
+Après la lecture de ce document nous avons pour but que vous soyez en mesure de modifier les pages existantes du site web vous-même :)
 
-In the project directory, you can run:
+pour commencer, voici la structure des dossiers les plus utilisés du projet:
+```
+    ├── public                  # public: Contient les fichiers à télécharger pour les utilisateurs
+    ├── src                     # src: Dossier contenant tout le code source
+        ├── images              # images: Dossier contenant toutes les images
+        └── pages               # pages: Dossier contenant le contenu pour chaque page
+            ├── accueil.jsx     # Accueil.jsx: Page d'accueil
+            ├── activites.jsx   # activites.jsx: Page des activités
+            └── ...             # etc.
+```
 
-### `npm start`
+#### c'est dans le dossier pages que vous pourrez modifier l'essentiel du contenu d'une page très facilement après quelques explications
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+Essentiellement, chaque page contient la balise parente Page, et la page est divisée en Section qui contient des Card représentés de façon vulgarisée comme suis :
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+<Page>
+    <Section>
+        <Card />
+        <Card />
+     </Section>
+     <Section>
+        <Card />
+        <Card />
+     </Section>
+</Page>
+```
 
-### `npm run build`
+Plus concrêtement voici à quoi ressemble le contenu d'une vraie Section
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+<Page>
+    <Section background='green' title='Les postes actifs'>
+      <ScrollCard
+        image={images.membre}
+        title='Membres'
+        description="Chaque membre actif est lié à un comité respectif et a..."
+      />
+      <ScrollCard
+        image={images.benevole}
+        title='Bénévoles'
+        description="Le bénévole actif n'est affilié à aucun comité en..."
+      />
+    </Section>
+</Page>
+```
+Et voici le résultat:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+![Example d'une section](./src/images/md1.png?raw=true)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+De plus il est à noter que vous pouvez utiliser une image en la déposant dans le dossier 'images' et utiliser l'élément :
+images.nomDeLimage
+pour l'utiliser où 'nomDeLimage' correspond au nom que vous avez donné au fichier d'image
 
-### `npm run eject`
+# Informations pour chaques types de balises
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Maintenant, passons aux choses sérieuses!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Nous allons voir rapidement ce que chaque balise peut prendre en paramètre
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Balise \<Section /\>
+| Nom du paramètre | Valeurs possibles | Description |
+|------------------|-------------------|-------------|
+| background | texte parmis : beige, green, books |
+| title | texte |
 
-## Learn More
+### Exemple avec tous les paramètres
+```
+    <Section
+        background='beige'
+        title='My title'
+    >
+    </Section>
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Balise \<Card /\>
+| Nom du paramètre (tous non-obligatoires) | Valeurs possibles | Description |
+|------------------|-------------------|-------------|
+| title | texte | titre de la carte |
+| subTitle | texte | sous-titre de la carte |
+| description | texte | description de la carte |
+| image | image.nomDunFichierDimage | une seule image |
+| imageList | \[images.img1, images.img2, ...\] | Liste d'image |
+| fullSizeImage | image.nomDunFichierDimage | Image qui prend toute la largeur
+| cardLink | url | lien url lorsqu'on clique sur la carte |
+| buttonLink | url | lien url d'un boutton |
+| buttonTitle | texte | titre du boutton |
+| file | url | lien vers un fichier dans le dossier publique |
+| thinPadding | boolean | Carte avec une plus petite bordure |
 
-### Code Splitting
+### Exemple avec tous les paramètres
+```
+    <Card
+        title="Mon titre"
+        subTitle="Mon sous-titre"
+        description="Ma description"
+        image={images.monImage}
+        imageList={[images.img1, images.img2]}
+        fullSizeImage={images.fullSizeImage}
+        cardLink="www.exemple.com"
+        buttonLink="www.exemple.com"
+        buttonTitle="Exemple"
+        file="./monFichier.pdf"
+        thinPadding
+    />
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Balise \<ScrollCard /\>
+| Nom du paramètre | Valeurs possibles | Description | Obligatoire |
+|------------------|-------------------|-------------|-------------|
+| title | texte | titre de la carte | Oui |
+| description | texte | description de la carte | Oui |
+| image | image.nomDunFichierDimage | une seule image | Oui |
+| imageHeight | pixel | hauteur de l'image en pixel | Non |
+| link | url | lien url lorsqu'on clique sur la carte | Non |
+| file | url | lien vers un fichier dans le dossier publique | Non |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Exemple avec tous les paramètres
+```
+    <ScrollCard
+        title="Mon titre"
+        description="Ma description"
+        image={images.monImage}
+        imageHeight="40px"
+        link="www.exemple.com"
+        file="./monFichier.pdf"
+    />
+```
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Balise \<HexagoneCard /\>
+| Nom du paramètre | Valeurs possibles | Description | Obligatoire |
+|------------------|-------------------|-------------|-------------|
+| title | texte | titre de la carte | Oui |
+| subTitle | texte | sous-titre de la carte | Non |
+| description | texte | description de la carte | Oui |
+| image | image.nomDunFichierDimage | une seule image | Oui |
 
-### Advanced Configuration
+### Exemple avec tous les paramètres
+```
+    <HexagoneCard
+        title="Mon titre"
+        subTitle="Mon sous-titre"
+        description="Ma description"
+        image={images.monImage}
+    />
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Balise \<Header /\>
+| Nom du paramètre | Valeurs possibles | Description |
+|------------------|-------------------|-------------|
+| image | image.nomDunFichierDimage | image d'arrière-plan |
 
-### Deployment
+### Exemple avec tous les paramètres
+```
+    <Header
+        image={images.monImage}
+    />
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+## Balise \<Carousel /\>
+| Nom du paramètre | Valeurs possibles | Description |
+|------------------|-------------------|-------------|
+| imageList | \[images.img1, images.img2, ...\] | Liste d'images |
+| speed | temps en secondes | Temps de défilement entre les images |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Exemple avec tous les paramètres
+```
+    <Carousel
+        imageList={[images.img1, images.img2]}
+        speed={5}
+    />
+```
+
+## Exercice : Modification d'une vraie page
+
+Donc Maintenant que nous avons vu un peu tout ce qui se cache sous le capot, modifions quelques informations dans la page S'impliquer :
+
+Considérant que vous êtes connectés au compte de l'AEMUDM sur github,
+
+1. Remmontons au début de la page, dans le gestionnaire de fichiers comme suit
+
+![Example d'une section](./src/images/md2.png?raw=true)
+
+2. Cliquer sur le dossier src
+3. Cliquer sur le dossier pages 
+4. Cliquer sur le dossier Simpliquer.jsx
+5. Cliquer sur le boutton de modification au dessus du contenu de fichier comme suit
+
+![Boutton d'édition](./src/images/md3.png?raw=true)
+
+6. Défiller complètement vers le bas de la page et changer les 2 dernières ScrollCard pour que leurs titles respectifs soient:
+    Membres actifs
+    Membres ponctuels

@@ -10,11 +10,11 @@ export default class CarouselComponent extends React.Component {
   }
   stop (speed) {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(), speed)
+      setTimeout(() => resolve(), Number(speed) * 1000)
     })
   }
   async goNextRecursive () {
-    const { length } = this.props.list
+    const { length } = this.props.imageList
     if (!length || this.stopRecursive) return
     let { index } = this.state
     await this.stop(this.props.speed)
@@ -25,14 +25,14 @@ export default class CarouselComponent extends React.Component {
     this.stopRecursive = true
   }
   increment (increment) {
-    const { length } = this.props.list
+    const { length } = this.props.imageList
     let newIndex = this.state.index + increment
     if (newIndex === length) newIndex = 0
     if (newIndex === -1) newIndex = length - 1
     this.setState({ index: newIndex })
   }
   render () {
-    const item = this.props.list[this.state.index]
+    const item = this.props.imageList[this.state.index]
     return (
       <Carousel style={{ backgroundImage: `url('${item}')` }}>
 

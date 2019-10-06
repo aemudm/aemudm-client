@@ -6,6 +6,7 @@ const CardComponent = (props) => (
     cover={props.thinPadding}
     href={props.cardLink}
     cardCount={props.cardCount}
+    file={props.file}
   >
     {(props.image || props.imageList) &&
       <ImageList list={props.image ? [props.image] : props.imageList} />
