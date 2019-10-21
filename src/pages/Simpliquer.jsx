@@ -7,7 +7,7 @@ const Simpliquer = () => (
     <Header image='simpliquer' />
     <Section background='beige'>
       <Card
-        title="Structure de l'association"
+        title="Structure de l'Association"
         description="L'AEMUDM comprend 6 différents comités gérés par les différents membres de l'exécutif. Ces comités sont également alimentés par l'effort des membres actifs et bénévoles qui travaillent fort pour offrir différents biens et services aux participants aux activités et pour soutenir la communauté dans différentes causes."
       />
     </Section>
