@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 
-import b1 from '../images/background1.jpg'
-import b2 from '../images/background2.jpg'
-import b3 from '../images/background3.jpg'
+import b1 from '../../images/background1.jpg'
+import b2 from '../../images/background2.jpg'
+import b3 from '../../images/background3.jpg'
 
 interface SectionStyledProps {
   background: "beige" | "green" | "books"

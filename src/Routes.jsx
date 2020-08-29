@@ -1,8 +1,7 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
-import Nav from './components/Nav/Nav'
-import Footer from './components/Footer/Footer'
+import { Nav, Footer } from './components'
 
 import NotFound from './pages/NotFound'
 import Accueil from './pages/Accueil'
