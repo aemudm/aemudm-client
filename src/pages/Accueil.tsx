@@ -9,20 +9,20 @@ const Accueil = (): JSX.Element => (
       <Card
         title='Qui Sommes-nous?'
         description="Nous sommes des étudiant(e)s musulman(e)s d'ici et d'ailleurs, unis dans la fraternité et la volonté de vivre l'Islam comme mode de vie à part entière, dans l'équilibre et l'harmonie qu'il inspire à l'être humain, conformément au Coran et à la tradition prophétique."
-        buttonLink='/getInvolved'
+        buttonLink='/simpliquer'
         buttonTitle='En savoir plus'
       />
       <Card
         title='Notre mission'
         description="Offrir une large gamme de services à la communauté étudiante; permettre un épanouissement physique, social, spirituel et intellectuel; promouvoir le vivre ensemble harmonieux et synergique des communautés culturelles et religieuses; faciliter la compréhension de l'islam."
-        buttonLink='/getInvolved'
+        buttonLink='/simpliquer'
         buttonTitle='En savoir plus'
       />
     </Section>
     <Section background='green' title='Découvrez nos activités!'>
       <Card
         cardLink='/activites#year'
-        subTitle='Activités Anuelles'
+        subTitle='Activités Annuelles'
         fullSizeImage='activite1'
       />
       <Card
@@ -36,7 +36,7 @@ const Accueil = (): JSX.Element => (
         fullSizeImage='activite3'
       />
     </Section>
-    <Section background='beige' title='En apprendre plus sur lislam'>
+    <Section background='beige' title="En apprendre plus sur l'islam">
       <Card
         cardLink='/references#textes'
         subTitle='Les textes religieux'
@@ -54,7 +54,7 @@ const Accueil = (): JSX.Element => (
       />
       <Card
         cardLink='/references#series'
-        subTitle='Séries youtoube'
+        subTitle='Séries youtube'
         imageList={['youtube1', 'youtube2']}
       />
       <Card

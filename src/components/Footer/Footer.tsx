@@ -12,11 +12,12 @@ export class Footer extends React.Component {
       <FooterStyled>
         <div className='wrapper'>
           <Icon image='facebook' href='http://www.facebook.com/aemudm' />
-          <Icon image='mail' href='mailto:aemudm@gmail.com' />
+          <Icon image='instagram' href='https://www.instagram.com/aemudm' />
           <Icon image='twitter' href='https://twitter.com/aemudm' />
+          <Icon image='mail' href='mailto:aemudm@gmail.com' />
           <Icon image='youtube' href='http://www.youtube.com/user/aemudem' />
         </div>
-        <p>aemudm.ca copyright ©</p>
+        <p>aemudm.ca copyright © {getYear()}</p>
       </FooterStyled>
     )
   }
@@ -25,6 +26,11 @@ export class Footer extends React.Component {
 interface IconProps {
   href: string
   image: string
+}
+
+const getYear = () => {
+    let d = new Date();
+    return d.getFullYear();
 }
 
 const Icon = (props: IconProps) => (
