@@ -34,12 +34,12 @@ const Simpliquer = () => (
       />
       <ScrollCard
         image='comcom'
-        title='Comité Comcom'
+        title='Comité Communication'
         description='Site web, Facebook, youtube, affiches, dépliants, logos… Le comité communication comme son nom le suggère, s’occupe principalement de la publicité et de la promotion de nos biens et services.'
       />
 
     </Section>
-    <Section background='beige' title='Les postes de lexécutif'>
+    <Section background='beige' title="Les postes de l'exécutif">
       <ScrollCard
         image='president'
         title='Président'
